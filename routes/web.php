@@ -19,3 +19,9 @@ Route::get('/', function () {
 });
 // 管理者ページ（ミドルウェア未適用 - 受講生が実装する）
 Route::get('/admin', [AdminController::class, 'index']);
+
+
+Route::middleware('chedk.admin')->group(function () 
+{
+    Route::post('/admin', [AdminController::class, 'show']);
+});
